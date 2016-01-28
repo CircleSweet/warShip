@@ -67,11 +67,67 @@ void line(struct fb_fix_screeninfo finfo, struct fb_var_screeninfo vinfo, char *
   }
 }
 
+void ocean(struct fb_fix_screeninfo finfo, struct fb_var_screeninfo vinfo, char *fbp, int x, int y){
+	line(finfo, vinfo, fbp, 0+x, 0+y,9+x, 0+y);
+	line(finfo, vinfo, fbp, 0+x, 1+y, 9+x, 1+y);
+	line(finfo, vinfo, fbp, 0+x, 2+y, 9+x, 2+y);
+	line(finfo, vinfo, fbp, 10+x, 3+y, 19+x, 3+y);
+	line(finfo, vinfo, fbp, 10+x, 4+y, 19+x, 4+y);	
+	line(finfo, vinfo, fbp, 10+x, 5+y, 19+x, 5+y);
+	line(finfo, vinfo, fbp, 20+x, 6+y, 29+x, 6+y);
+	line(finfo, vinfo, fbp, 20+x, 7+y, 29+x, 7+y);
+	line(finfo, vinfo, fbp, 20+x, 8+y, 29+x, 8+y);
+	line(finfo, vinfo, fbp, 30+x, 9+y, 39+x, 9+y);
+	line(finfo, vinfo, fbp, 30+x, 10+y, 39+x, 10+y);
+	line(finfo, vinfo, fbp, 30+x, 11+y, 39+x, 11+y);
+	line(finfo, vinfo, fbp, 40+x, 12+y, 49+x, 12+y);
+	line(finfo, vinfo, fbp, 40+x, 12+y, 49+x, 12+y);
+	line(finfo, vinfo, fbp, 40+x, 12+y, 49+x, 12+y);
+	line(finfo, vinfo, fbp, 50+x, 12+y, 59+x, 12+y);
+	line(finfo, vinfo, fbp, 50+x, 12+y, 59+x, 12+y);
+	line(finfo, vinfo, fbp, 50+x, 12+y, 59+x, 12+y);
 
-void huruf(
-	struct fb_fix_screeninfo finfo, struct fb_var_screeninfo vinfo, char *fbp, int x, int y, int red, int green, int blue, char h) {
+}
 
-	switch (h){
+void shipbimo(struct fb_fix_screeninfo finfo, struct fb_var_screeninfo vinfo, char *fbp) {
+	line(finfo, vinfo, fbp, 550, 50, 570, 50); // sayap kiri atas
+	line(finfo, vinfo, fbp, 549, 51, 550, 68); //sayap kiri belakang
+	line(finfo, vinfo, fbp, 570, 51, 578, 61); // sayap kiri depan
+	line(finfo, vinfo, fbp, 530, 70, 515, 55); // badan
+	line(finfo, vinfo, fbp, 515, 55, 510, 55); // badan
+	line(finfo, vinfo, fbp, 510, 55, 510, 80); // badan
+	line(finfo, vinfo, fbp, 530, 70, 598, 60); // badan
+	line(finfo, vinfo, fbp, 595, 65, 600, 80); // jendela
+	line(finfo, vinfo, fbp, 600, 80, 615, 80); // jendela
+	line(finfo, vinfo, fbp, 598, 60, 615, 66); // badan
+	line(finfo, vinfo, fbp, 615, 66, 620, 70); // badan
+	line(finfo, vinfo, fbp, 620, 70, 620, 85); // badan
+	line(finfo, vinfo, fbp, 620, 85, 615, 95); // badan
+	line(finfo, vinfo, fbp, 615, 95, 600, 100); // badan
+	line(finfo, vinfo, fbp, 600, 100, 585, 105); // badan
+	line(finfo, vinfo, fbp, 580, 120, 545, 120); // sayap kanan
+	line(finfo, vinfo, fbp, 580, 120, 590, 90); // sayap kanan
+	line(finfo, vinfo, fbp, 545, 120, 555, 90); // sayap kanan
+	line(finfo, vinfo, fbp, 550, 105, 525, 100); // sayap kanan
+	line(finfo, vinfo, fbp, 525, 100, 530, 90); // sayap kanan
+	line(finfo, vinfo, fbp, 528, 95, 515, 95); // sayap kanan
+	line(finfo, vinfo, fbp, 515, 95, 510, 80); // badan
+}
+
+void shipscemo(struct fb_fix_screeninfo finfo, struct fb_var_screeninfo vinfo, char *fbp, int x, int y){
+	line(finfo, vinfo, fbp, 0+x, 0+y, 0+x, 130+y);
+	line(finfo, vinfo, fbp, 0+x, 0+y, 60+x, 60+y);
+	line(finfo, vinfo, fbp, 0+x, 130+y, 60+x, 70+y);
+	line(finfo, vinfo, fbp, 60+x, 0+y, 60+x, 130+y);
+	line(finfo, vinfo, fbp, 60+x, 0+y, 250+x, 0+y);
+	line(finfo, vinfo, fbp, 250+x, 0+y, 450+x, 80+y);
+	line(finfo, vinfo, fbp, 400+x, 130+y, 450+x, 80+y);
+	line(finfo, vinfo, fbp, 60+x, 130+y, 400+x, 130+y);
+}
+
+void huruf(struct fb_fix_screeninfo finfo, struct fb_var_screeninfo vinfo, char *fbp, int x, int y, int red, int green, int blue, char h) {
+
+    switch (h) {
 	case 'k' :
 		 	drawBlock(finfo, vinfo, fbp, 0+x,0+y, 70, 10, red, green, blue);  
 		 	drawBlock(finfo, vinfo, fbp, 10+x,30+y, 10, 10, red, green, blue);  
@@ -132,55 +188,55 @@ void huruf(
 		break;
 
 	case 'n' :
-            drawBlock(finfo, vinfo, fbp, 0+x,0+y, 70, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 40+x,0+y, 70, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 10+x,10+y, 10, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 30+x,30+y, 10, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 20+x,20+y, 10, 10, red, green, blue);
-        break;
+			drawBlock(finfo, vinfo, fbp, 0+x,0+y, 70, 10, red, green, blue);
+			drawBlock(finfo, vinfo, fbp, 40+x,0+y, 70, 10, red, green, blue);
+			drawBlock(finfo, vinfo, fbp, 10+x,10+y, 10, 10, red, green, blue);
+			drawBlock(finfo, vinfo, fbp, 30+x,30+y, 10, 10, red, green, blue);
+			drawBlock(finfo, vinfo, fbp, 20+x,20+y, 10, 10, red, green, blue);
+        	break;
 
-    case 'w' :
-            drawBlock(finfo, vinfo, fbp, 0+x,0+y, 70, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 40+x,0+y, 70, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 10+x,50+y, 10, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 20+x,40+y, 10, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 30+x,50+y, 10, 10, red, green, blue);
-        break;
-    case 'z' :
-            drawBlock(finfo, vinfo, fbp, 0+x,0+y, 10, 50, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 0+x,60+y, 10, 50, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 40+x,10+y, 10, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 30+x,20+y, 10, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 20+x,30+y, 10, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 10+x,40+y, 10, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 0+x,50+y, 10, 10, red, green, blue);
-        break;
+    	case 'w' :
+            		drawBlock(finfo, vinfo, fbp, 0+x,0+y, 70, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 40+x,0+y, 70, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 10+x,50+y, 10, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 20+x,40+y, 10, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 30+x,50+y, 10, 10, red, green, blue);
+        	break;
+    	case 'z' :
+            		drawBlock(finfo, vinfo, fbp, 0+x,0+y, 10, 50, red, green, blue);
+          		drawBlock(finfo, vinfo, fbp, 0+x,60+y, 10, 50, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 40+x,10+y, 10, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 30+x,20+y, 10, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 20+x,30+y, 10, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 10+x,40+y, 10, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 0+x,50+y, 10, 10, red, green, blue);
+        	break;
 
-    case 'b' :
-            drawBlock(finfo, vinfo, fbp, 0+x,0+y, 70, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 10+x,0+y, 10, 30, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 10+x,30+y, 10, 30, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 40+x,10+y, 20, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 40+x,40+y, 20, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 10+x,60+y, 10, 30, red, green, blue);
-        break;
+    	case 'b' :
+            		drawBlock(finfo, vinfo, fbp, 0+x,0+y, 70, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 10+x,0+y, 10, 30, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 10+x,30+y, 10, 30, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 40+x,10+y, 20, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 40+x,40+y, 20, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 10+x,60+y, 10, 30, red, green, blue);
+        	break;
 
-    case 'm' :
-            drawBlock(finfo, vinfo, fbp, 0+x,0+y, 70, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 40+x,0+y, 70, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 10+x,10+y, 10, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 30+x,10+y, 10, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 20+x,20+y, 10, 10, red, green, blue);
-        break;
+    	case 'm' :
+            		drawBlock(finfo, vinfo, fbp, 0+x,0+y, 70, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 40+x,0+y, 70, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 10+x,10+y, 10, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 30+x,10+y, 10, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 20+x,20+y, 10, 10, red, green, blue);
+        	break;
 
-    case 'o':
-            drawBlock(finfo, vinfo, fbp, 0+x,10+y, 50, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 40+x,10+y, 50, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 10+x,60+y, 10, 30, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 10+x,0+y, 10, 30, red, green, blue);
-        break;
+    	case 'o':
+            		drawBlock(finfo, vinfo, fbp, 0+x,10+y, 50, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 40+x,10+y, 50, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 10+x,60+y, 10, 30, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 10+x,0+y, 10, 30, red, green, blue);
+        	break;
 
-    case 'g':
+    	case 'g':
 			drawBlock(finfo, vinfo, fbp, 0+x,10+y, 50, 10, red, green, blue);
 			drawBlock(finfo, vinfo, fbp, 10+x,0+y, 10, 40, red, green, blue);
 			drawBlock(finfo, vinfo, fbp, 10+x,60+y, 10, 40, red, green, blue);
@@ -189,27 +245,27 @@ void huruf(
 		break;
 
 	case 'f' :
-            drawBlock(finfo, vinfo, fbp, 0+x,0+y, 70, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 0+x,0+y, 10, 50, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 0+x,30+y, 10, 50, red, green, blue);
-        break;
+        		drawBlock(finfo, vinfo, fbp, 0+x,0+y, 70, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 0+x,0+y, 10, 50, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 0+x,30+y, 10, 50, red, green, blue);
+        	break;
 
-    case 'd' :
-            drawBlock(finfo, vinfo, fbp, 0+x,0+y, 70, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 0+x,0+y, 10, 40, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 0+x,60+y, 10, 40, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 40+x,10+y, 50, 10, red, green, blue);
-        break;
+    	case 'd' :
+            		drawBlock(finfo, vinfo, fbp, 0+x,0+y, 70, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 0+x,0+y, 10, 40, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 0+x,60+y, 10, 40, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 40+x,10+y, 50, 10, red, green, blue);
+        	break;
 
-    case 'y' :
-            drawBlock(finfo, vinfo, fbp, 20+x,30+y, 40, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 0+x,0+y, 20, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 10+x,20+y, 10, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 40+x,0+y, 20, 10, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 30+x,20+y, 10, 10, red, green, blue);
-        break;
+    	case 'y' :
+            		drawBlock(finfo, vinfo, fbp, 20+x,30+y, 40, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 0+x,0+y, 20, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 10+x,20+y, 10, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 40+x,0+y, 20, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 30+x,20+y, 10, 10, red, green, blue);
+        	break;
 
-    case '*' :
+    	case '*' :
     /*
  ** **
 *******
@@ -218,12 +274,12 @@ void huruf(
   ***
    *
     */
-            drawBlock(finfo, vinfo, fbp, 10+x,y, 10, 20, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 40+x,y, 10, 20, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 0+x,10+y, 20, 70, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 10+x,30+y, 10, 50, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 20+x,40+y, 10, 30, red, green, blue);
-            drawBlock(finfo, vinfo, fbp, 30+x,50+y, 10, 10, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 10+x,y, 10, 20, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 40+x,y, 10, 20, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 0+x,10+y, 20, 70, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 10+x,30+y, 10, 50, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 20+x,40+y, 10, 30, red, green, blue);
+            		drawBlock(finfo, vinfo, fbp, 30+x,50+y, 10, 10, red, green, blue);
     }
 
 }
@@ -290,12 +346,12 @@ int main()
     // Draw the BG color
     drawBlock(finfo, vinfo, fbp, 0, 0, 700, 1366, 255, 255, 255); 
     
-    int ax = 120;
-    int ay = 600;
+    int ax = 130;
+    int ay = 520;
     for(int i=0;i<5;i++) {     
        line(finfo, vinfo, fbp, ax, ay, 200+i*2*ax, 100);
     }
-    munmap(fbp, screensize);
+    shipscemo(finfo, vinfo, fbp, 50, 540);
     close(fbfd);
     return 0;
 }
